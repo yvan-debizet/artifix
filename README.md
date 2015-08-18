@@ -9,9 +9,9 @@ Il doit réaliser deux fonctions principaux :
 Le projet suivra principalement le paradigme modele-view-listener et aura une architecture à niveaux/couches.
 Voici une première ébauche des diverses parties que le projet contiendra :
 
-- couche 0 : librairie découplé du problème
-    - ObservableSynchro
-    - ObserverSyncho
++ couche 0 : librairie découplé du problème
+    + ObservableSynchro
+    + ObserverSyncho
 
 - couche 1 : Modèle et traitement des données 
     - Firework
