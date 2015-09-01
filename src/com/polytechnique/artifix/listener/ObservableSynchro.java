@@ -1,4 +1,4 @@
-package com.polytechnique.artifix.lib.listener;
+package com.polytechnique.artifix.listener;
 
 import java.util.ArrayList;
 import java.util.List;

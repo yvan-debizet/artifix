@@ -1,4 +1,4 @@
-package com.polytechnique.artifix.lib.listener;
+package com.polytechnique.artifix;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ObservableSynchroTest {
+import com.polytechnique.artifix.listener.ObservableSynchro;
+import com.polytechnique.artifix.listener.ObserverSynchro;
+
+public class ListenerTest {
     private final static int NB_OBSERVER = 1000;
     private static final int NB_NOTIFY = 40;
     private static final long TIME = 40;
