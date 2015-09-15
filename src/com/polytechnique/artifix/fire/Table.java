@@ -18,8 +18,9 @@ public class Table extends ObservableSynchro<Table> {
 
 
     public Table(int nbLine) {
+        if(nbLine<0)throw new IllegalArgumentException();
         lines = new TableLine[nbLine];
-           for (int i = 0; i < nbLine; i++) {
+        for (int i = 0; i < nbLine; i++) {
             lines[i] = new TableLine(i);
             lines[i].addObserver(listener);
         }
@@ -41,11 +42,13 @@ public class Table extends ObservableSynchro<Table> {
     }
 
     public TableLine getLine(int numero) {
+        if(numero < 0 || numero >= lines.length)throw new IllegalArgumentException();
         return lines[numero];
     }
     public int getNumberLine() {
         return lines.length;
     }
+
     @Override
     public Table getObservable() {
         return this;

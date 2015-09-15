@@ -2,10 +2,9 @@ package com.polytechnique.artifix.fire;
 
 import com.polytechnique.artifix.listener.ObservableSynchro;
 
-class Fire extends ObservableSynchro<Fire> {
+public class Fire extends ObservableSynchro<Fire> {
     private TableLine line;
-
-
+    private FireItem item;
 
     @Override
     public Fire getObservable() {
@@ -25,9 +24,14 @@ class Fire extends ObservableSynchro<Fire> {
     synchronized public void setLine(TableLine line) {
         if(line==this.line) return;
         notifyObservers();
-        if(this.line!=null) this.line.remove(this);
+        if(this.line!=null) this.line.removeFire(this);
         this.line = line;
-        if(line!=null) line.add(this);
+        if(line!=null) line.addFire(this);
     }
 
+    synchronized public void setFireItem(FireItem item) {
+        if(item==this.item) return;
+        notifyObservers();
+        this.item = item;
+    }
 }

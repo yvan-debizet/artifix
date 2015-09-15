@@ -158,6 +158,11 @@ public class ListenerTest {
             synchronized(this) {
                 i++;
                 notifyObservers();
+                try {
+                    Thread.sleep(15);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
                 i--;
                 notifyObservers();
             }

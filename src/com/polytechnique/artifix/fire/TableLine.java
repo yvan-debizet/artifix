@@ -1,7 +1,8 @@
 package com.polytechnique.artifix.fire;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
+import java.util.List;
 
 import com.polytechnique.artifix.listener.ObservableSynchro;
 
@@ -20,19 +21,16 @@ public class TableLine extends ObservableSynchro<TableLine>{
      * @return
      * @see java.util.ArrayList#add(java.lang.Object)
      */
-    synchronized public void add(Fire e) {
-        if(fires.contains(e))return;
+    synchronized public void addFire(Fire e) {
+        if(e==null)throw new NullPointerException();
         notifyObservers();
+        if(fires.contains(e))return;
         fires.add(e);
         e.setLine(this);
     }
 
-    /**
-     * @return
-     * @see java.util.ArrayList#iterator()
-     */
-    public Iterator<Fire> iterator() {
-        return fires.iterator();
+    public List<Fire> getFires() {
+        return Collections.unmodifiableList(fires);
     }
 
     /**
@@ -40,7 +38,7 @@ public class TableLine extends ObservableSynchro<TableLine>{
      * @return
      * @see java.util.ArrayList#remove(java.lang.Object)
      */
-    synchronized public void remove(Fire e) {
+    synchronized public void removeFire(Fire e) {
         if(!fires.contains(e))return;
         notifyObservers();
         fires.remove(e);
